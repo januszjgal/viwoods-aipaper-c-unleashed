@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(C:/Android/platform-tools/adb.exe shell \"echo ''=== Before Sleep ==='' && date && dumpsys wifi | grep -E ''Wifi is|SSID|mScreenOn|mSuspendOpt'' | head -10 && echo '''' && echo ''=== Putting device to sleep ==='' && input keyevent KEYCODE_SLEEP && echo ''Device sleeping...''\")",
+      "Bash(C:/Android/platform-tools/adb.exe shell:*)"
+    ]
+  }
+}
