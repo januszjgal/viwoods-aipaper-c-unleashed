@@ -12,6 +12,21 @@ dumpsys deviceidle disable
 # Ensure WiFi never sleeps
 settings put global wifi_sleep_policy 0
 
+# Disable WiFi suspend optimizations (prevents WiFi from sleeping on screen off)
+settings put global wifi_suspend_optimizations_enabled 0
+
+# Disable WiFi power save mode
+settings put global wifi_power_save 0
+
+# Always request WiFi connection
+settings put global wifi_always_requested 1
+
+# Force WiFi high-performance mode (disables power saving at framework level)
+# Wait for WiFi service to be fully ready
+sleep 5
+cmd wifi force-hi-perf-mode enabled
+cmd wifi force-low-latency-mode enabled
+
 # Keep mobile data active
 settings put global mobile_data_always_on 1
 
