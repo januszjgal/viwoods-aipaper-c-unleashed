@@ -1,0 +1,2 @@
+# Set USB config to MTP + ADB for Android Auto compatibility
+persist.sys.usb.config=mtp,adb

@@ -1,0 +1,6 @@
+id=android-auto-system
+name=Android Auto System App
+version=1.0
+versionCode=1
+author=viwoods-unleashed
+description=Makes Android Auto a system app with proper USB configuration for car head units

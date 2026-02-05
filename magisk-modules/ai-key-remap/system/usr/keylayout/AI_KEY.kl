@@ -1,0 +1,5 @@
+# Remap dedicated "AI KEY" button (event6)
+# Linux keycode 59 == KEY_F1
+# Set to UNKNOWN so Android doesn't launch the vendor AI app
+# The Magisk service.sh handles the actual key press via getevent
+key 59 UNKNOWN

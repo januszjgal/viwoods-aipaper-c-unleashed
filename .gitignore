@@ -1,0 +1,42 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# APK files (don't commit copyrighted binaries)
+*.apk
+
+# Patched system files (don't commit modified proprietary files)
+services.jar
+*.odex
+*.vdex
+*.art
+
+# Backup files
+*.img
+*.tar
+*.ab
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Device-specific files
+magisk_patched*.img
+init_boot*.img
+boot_*.img

@@ -1,0 +1,6 @@
+id=ai_key_remap
+name=AI Key Remap
+version=1.0
+versionCode=1
+author=viwoods-unleashed
+description=Remap Viwoods AI KEY (F1/59) to toggle frontlight instead of launching AI app
