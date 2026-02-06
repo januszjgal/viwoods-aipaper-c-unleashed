@@ -9,8 +9,8 @@ sleep 30
 # Disable Doze (deep and light idle) for connectivity
 dumpsys deviceidle disable
 
-# Ensure WiFi never sleeps
-settings put global wifi_sleep_policy 0
+# Set WiFi sleep policy to NEVER (2). Values: 0=default(sleep), 1=never_while_plugged, 2=never
+settings put global wifi_sleep_policy 2
 
 # Disable WiFi suspend optimizations (prevents WiFi from sleeping on screen off)
 settings put global wifi_suspend_optimizations_enabled 0
@@ -27,16 +27,9 @@ sleep 5
 cmd wifi force-hi-perf-mode enabled
 cmd wifi force-low-latency-mode enabled
 
-# Disable Viwoods-specific sleep flags (these actually control WiFi/data disable on screen off)
-settings put system persist_wifi_sleep_flag 0
-settings put system persist_data_sleep_flag 0
-settings put system persist_bt_sleep_flag 0
-settings put system background_power_saving_enable 0
-
-# Set system property to disable WiFi sleep delay
-setprop persist.wifi.sleep.delay.ms -1
-
-# NOTE: WiFi keep-alive daemon is in separate wifi_keepalive.sh script
+# Prevent BT from being powered down during sleep
+# WifiSleepController checks this property at boot to decide if BT should sleep
+setprop persist.bt.power.down false
 
 # Keep mobile data active
 settings put global mobile_data_always_on 1

@@ -1,23 +1,22 @@
 #!/system/bin/sh
 # Network Keep-Alive Service
-# Keeps WiFi and mobile data enabled during sleep
+# Monitors and re-enables WiFi, mobile data, and Bluetooth if disabled during sleep
+# Viwoods firmware kills all radios ~3-4s after screen off; this daemon re-enables them
+# BT headphones will briefly disconnect but auto-reconnect within seconds
 
 sleep 60  # Wait for system boot
 
 while true; do
-    # Check and re-enable WiFi
-    wifi_state=$(settings get global wifi_on)
-    if [ "$wifi_state" = "0" ]; then
-        svc wifi enable
-        log -t NetworkKeepAlive "Re-enabled WiFi"
-    fi
+    wifi=$(settings get global wifi_on)
+    data=$(settings get global mobile_data)
+    bt=$(settings get global bluetooth_on)
 
-    # Check and re-enable mobile data
-    data_state=$(settings get global mobile_data)
-    if [ "$data_state" = "0" ]; then
-        svc data enable
-        log -t NetworkKeepAlive "Re-enabled mobile data"
-    fi
+    [ "$wifi" = "0" ] && svc wifi enable
+    [ "$data" = "0" ] && svc data enable
+    [ "$bt" = "0" ] && svc bluetooth enable
 
-    sleep 10
+    [ "$wifi" = "0" ] || [ "$data" = "0" ] || [ "$bt" = "0" ] && \
+        log -t NetworkKeepAlive "Re-enabled radios (wifi=$wifi data=$data bt=$bt)"
+
+    sleep 3
 done
