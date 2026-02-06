@@ -2,7 +2,21 @@
   "permissions": {
     "allow": [
       "Bash(C:/Android/platform-tools/adb.exe shell \"echo ''=== Before Sleep ==='' && date && dumpsys wifi | grep -E ''Wifi is|SSID|mScreenOn|mSuspendOpt'' | head -10 && echo '''' && echo ''=== Putting device to sleep ==='' && input keyevent KEYCODE_SLEEP && echo ''Device sleeping...''\")",
-      "Bash(C:/Android/platform-tools/adb.exe shell:*)"
+      "Bash(C:/Android/platform-tools/adb.exe shell:*)",
+      "Bash(git -C \"c:/Projects/viwoods-aipaper-c-unleashed\" log --oneline --all)",
+      "Bash(git -C \"c:/Projects/viwoods-aipaper-c-unleashed\" show 2482427:boot-scripts/disable_doze.sh)",
+      "Bash(git -C \"c:/Projects/viwoods-aipaper-c-unleashed\" show 370b333:boot-scripts/disable_doze.sh)",
+      "Bash(C:/Android/platform-tools/adb.exe push \"c:\\\\Projects\\\\viwoods-aipaper-c-unleashed\\\\boot-scripts\\\\disable_doze.sh\" //data/local/tmp/disable_doze.sh)",
+      "Bash(base64:*)",
+      "Bash(python3 -c \"import base64; script=open\\(r''c:\\\\Projects\\\\viwoods-aipaper-c-unleashed\\\\boot-scripts\\\\wifi_keepalive.sh'',''rb''\\).read\\(\\).replace\\(b''sleep 60'',b''sleep 1''\\); print\\(base64.b64encode\\(script\\).decode\\(\\)\\)\")",
+      "Bash(python -c \"import base64; script=open\\(r''c:\\\\Projects\\\\viwoods-aipaper-c-unleashed\\\\boot-scripts\\\\wifi_keepalive.sh'',''rb''\\).read\\(\\).replace\\(b''sleep 60'',b''sleep 1''\\); print\\(base64.b64encode\\(script\\).decode\\(\\)\\)\")",
+      "Bash(python -c \"\nimport base64\nscript = open\\(r''c:\\\\Projects\\\\viwoods-aipaper-c-unleashed\\\\boot-scripts\\\\wifi_keepalive.sh'',''rb''\\).read\\(\\)\nscript = script.replace\\(b''\\\\r\\\\n'', b''\\\\n''\\).replace\\(b''sleep 60'', b''sleep 1''\\)\nprint\\(base64.b64encode\\(script\\).decode\\(\\)\\)\n\")",
+      "Bash(python -c \"\nscript = open\\(r''c:\\\\Projects\\\\viwoods-aipaper-c-unleashed\\\\boot-scripts\\\\disable_doze.sh'',''rb''\\).read\\(\\)\nscript = script.replace\\(b''\\\\r\\\\n'', b''\\\\n''\\)\nopen\\(r''c:\\\\Projects\\\\viwoods-aipaper-c-unleashed\\\\boot-scripts\\\\disable_doze.sh'',''wb''\\).write\\(script\\)\nprint\\(''Fixed''\\)\n\")",
+      "Bash(C:/Android/platform-tools/adb.exe pull //data/local/tmp/services.jar \"c:/Projects/viwoods-aipaper-c-unleashed/services.jar\")",
+      "Bash(where:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(cmd.exe /c \"scoop install jadx\")",
+      "Bash(git commit:*)"
     ]
   }
 }
