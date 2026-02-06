@@ -32,9 +32,13 @@ services.jar
 # Log files
 *.log
 
+# Decompiled output (regenerate with jadx, see docs/PATCHING-SERVICES.md)
+services-decompiled/
+
 # Temporary files
 *.tmp
 *.temp
+nul
 
 # Device-specific files
 magisk_patched*.img
